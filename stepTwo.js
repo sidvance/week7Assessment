@@ -1,20 +1,22 @@
 
 //function should return true if the sum of any two numbers is equal to 0
+/* for each element in the array, commpare it to every element in the array. If the sum of two elements commpared equals 0, return true.
+*/
 
-const addToZero = (nums) => {
-    for(let i = 0; i < nums.length; i++){
-        if(nums[i] + nums[i] === 0){
-            return true;
-        }else{
-            return false;
+const addToZero = (arr) => {
+    arr.forEach((el) => {
+        for (let i = 0; i < arr.length; i++){
+            const sum = (el + arr[i])
+            return sum;
         }
-    }
+
+    })    
 }
 
-console.log(addToZero([ ]))
-console.log(addToZero([1]))
-console.log(addToZero([1, 2, 3]))
-console.log(addToZero([1, 2, 3, -2]))
+// addToZero([0])
+// addToZero([1])
+// addToZero([1, 2, 3])
+// addToZero([1, 2, -2])
 
 //run time is O(n)
 
@@ -36,8 +38,8 @@ const hasUniqueLetters = (str) => {
     return true;
 }
 
-hasUniqueLetters('racoon')
-hasUniqueLetters('horse')
+// console.log(hasUniqueLetters('racoon'))
+// console.log(hasUniqueLetters('horse'))
 
 //run time is O(n)
 
@@ -46,31 +48,46 @@ hasUniqueLetters('horse')
 
 
 //function shoud return the length of the longest word in an array
+/* Iterate through the array. The first string will be pushed to a new array. Each subsequent will be compared to
+string in new array. If length of string in new array is shorter than next string in orig array, it will be replaced
+by the longer string. Log the length of string in new array.
+*/
 
 const findLongestWord = (arr) => {
-    let largest = 0;
-    let word = arr[i]
-    for (let i = 0; i < arr.length; i++)
-  if (word.length > word){
-    largest = word.length;
-    return largest;
-  }else{
-    console.log('wth')
-  } }
-console.log(findLongestWord['hi', 'hello']);
+    let longestWord = '';
+    // longestWord = longestWordArr[0];
+    arr.forEach((e) => {
+        if(e.length > longestWord.length){
+            longestWord = e
+        }
+    })
+    return longestWord.length
+}
+
+// console.log(findLongestWord(['hi', 'hello', 'hiJoelyHopeYoureDoingWell']));
 
 //run time is O(n)
 
 
 
 
-//function should check if a sentence is a pangram
+//function should check if a sentence is a pangram, return true if it is
 
 const letsCheckIfThisSentenceHasEveryLetterInTheEnglishLanguage = (str) => {
-
+    // let splitStr = str.split();
+    let alpha = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    for (let i = 0; i < alpha.length; i++){
+        if (str.indexOf(alpha[i]) < 0){
+            return false;
+        } 
+    }
+    return true;
 }
+
+console.log(letsCheckIfThisSentenceHasEveryLetterInTheEnglishLanguage('the quick brown fox jumps over the lazy dog'))
+console.log(letsCheckIfThisSentenceHasEveryLetterInTheEnglishLanguage('sally sell sea shells'))
+
 
 //sticking with the theme and also saying this is O(n) run time
 
 
-//I COULD NOT GET ANY OF THESE FUNCTIONING PROPERLY HAHAHA
